@@ -29,7 +29,7 @@ function Chat() {
               </HStack>
             </TabPanel>
             <TabPanel>
-              <HStack h="5vh">
+              <HStack h="4vh">
                 <Text m="0" color="blue.800">
                   Shashwat
                 </Text>
@@ -40,7 +40,7 @@ function Chat() {
               </HStack>
             </TabPanel>
             <TabPanel>
-              <HStack h="5vh">
+              <HStack h="4vh">
                 <Text m="0" color="blue.800">
                   Ashvin
                 </Text>
