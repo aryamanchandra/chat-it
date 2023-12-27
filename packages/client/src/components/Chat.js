@@ -53,7 +53,7 @@ function Chat() {
           </TabPanels>
         </GridItem>
         <GridItem rowSpan={10}>
-          <Text>Hello this is some text</Text>
+          {/* <Text>Hello this is some text</Text> */}
         </GridItem>
         <GridItem rowSpan={2}>
           <Input
