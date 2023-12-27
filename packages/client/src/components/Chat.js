@@ -14,7 +14,7 @@ function Chat() {
       <TabPanels>
         <TabPanel>
           <HStack h="5vh">
-            <Text m="0">Varun</Text>
+            <Text m="0" color="blue.800">Varun</Text>
             <Divider orientation="vertical" borderColor="gray.500" />
             <Text fontSize="sm" color="gray.500" m="0">
               Online
@@ -23,7 +23,7 @@ function Chat() {
         </TabPanel>
         <TabPanel>
           <HStack h="5vh">
-            <Text m="0">Shashwat</Text>
+            <Text m="0" color="blue.800">Shashwat</Text>
             <Divider orientation="vertical" borderColor="gray.500" />
             <Text fontSize="sm" color="gray.500" m="0">
               Online
@@ -32,7 +32,7 @@ function Chat() {
         </TabPanel>
         <TabPanel>
           <HStack h="5vh">
-            <Text m="0">Ashvin</Text>
+            <Text m="0" color="blue.800" >Ashvin</Text>
             <Divider orientation="vertical" borderColor="gray.500" />
             <Text fontSize="sm" color="gray.500" m="0">
               Online
