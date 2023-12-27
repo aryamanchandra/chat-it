@@ -39,7 +39,7 @@ function Sidebar() {
         </Text>
       </VStack>
       <Divider />
-      <VStack as={TabList} border="0">
+      <VStack as={TabList} border="0" pt={5}>
         <HStack as={Tab} color="blue.800">
           <Text>Varun</Text>
         </HStack>
