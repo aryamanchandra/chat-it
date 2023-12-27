@@ -7,7 +7,7 @@ function Sidebar() {
     <VStack py="1.4rem">
         <VStack justify="space-evenly" w="100%">
             <Heading fontSize="25" color="blue.800" mb="3">Chat It</Heading>
-            <Button  leftIcon={<CopyIcon />} px="5" py="2" mb="0" bg="gray.100" color=""> BH34JK203</Button>
+            <Button  leftIcon={<CopyIcon />} px="5" py="2" mb="0" bg="blue.500" color=""> BH34JK203</Button>
             <Text color="gray.400" fontSize="13">Your code for sharing</Text>
         </VStack>
       <Divider />
