@@ -14,7 +14,7 @@ import Sidebar from "./Sidebar";
 
 function Home() {
   return (
-    <Grid templateColumns="repeat(10, 1fr)" as={Tabs} h="100vh" >
+    <Grid templateColumns="repeat(10, 1fr)" as={Tabs} h="100vh" paddingX="20%" paddingY="5">
       <GridItem colSpan="3" bg="gray.50">
         <Sidebar />
       </GridItem>

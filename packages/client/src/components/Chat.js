@@ -1,6 +1,7 @@
 import {
   Divider,
   HStack,
+  Input,
   TabPanel,
   TabPanels,
   Text,
@@ -10,11 +11,13 @@ import React from "react";
 
 function Chat() {
   return (
-    <VStack p="3">
+    <VStack p="5" px="10">
       <TabPanels>
         <TabPanel>
           <HStack h="5vh">
-            <Text m="0" color="blue.800">Varun</Text>
+            <Text m="0" color="blue.800">
+              Varun
+            </Text>
             <Divider orientation="vertical" borderColor="gray.500" />
             <Text fontSize="sm" color="gray.500" m="0">
               Online
@@ -23,7 +26,9 @@ function Chat() {
         </TabPanel>
         <TabPanel>
           <HStack h="5vh">
-            <Text m="0" color="blue.800">Shashwat</Text>
+            <Text m="0" color="blue.800">
+              Shashwat
+            </Text>
             <Divider orientation="vertical" borderColor="gray.500" />
             <Text fontSize="sm" color="gray.500" m="0">
               Online
@@ -32,7 +37,9 @@ function Chat() {
         </TabPanel>
         <TabPanel>
           <HStack h="5vh">
-            <Text m="0" color="blue.800" >Ashvin</Text>
+            <Text m="0" color="blue.800">
+              Ashvin
+            </Text>
             <Divider orientation="vertical" borderColor="gray.500" />
             <Text fontSize="sm" color="gray.500" m="0">
               Online
@@ -40,6 +47,12 @@ function Chat() {
           </HStack>
         </TabPanel>
       </TabPanels>
+      <Input
+        placeholder="Basic usage"
+        color="blue.500"
+        marginX="20"
+        sx={{ border: "2px solid #CBD5E0", marginTop: "auto", marginX: "50px !important" }}
+      />
     </VStack>
   );
 }
