@@ -14,9 +14,13 @@ import React from "react";
 import { CopyIcon } from "@chakra-ui/icons";
 import { useContext } from "react";
 import { FriendContext } from "../components/Home";
+import { useDisclosure } from "@chakra-ui/hooks";
+import { ChatIcon } from "@chakra-ui/icons";
+import AddFriendModal from "./AddFriendModal";
 
 function Sidebar() {
   const { friendList, setFriendList } = useContext(FriendContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <VStack py="1.4rem">
@@ -44,6 +48,12 @@ function Sidebar() {
         </Text>
       </VStack>
       <Divider />
+      <HStack justify="space-evenly" w="100%">
+          <Heading size="md">Add Friend</Heading>
+          <Button onClick={onOpen}>
+            <ChatIcon />
+          </Button>
+        </HStack>
       <VStack as={TabList} border="0" pt={5}>
       {friendList.map(friend => (
         <HStack as={Tab} color="blue.800">
@@ -56,7 +66,8 @@ function Sidebar() {
         </HStack>
         ))}
       </VStack>
-    </VStack>
+      <AddFriendModal isOpen={isOpen} onClose={onClose} />
+    </VStack>    
   );
 }
 
