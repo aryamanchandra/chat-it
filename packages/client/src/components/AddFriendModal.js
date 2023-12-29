@@ -9,7 +9,7 @@ import {
   import { Button, ModalOverlay } from "@chakra-ui/react";
   import { friendSchema } from "./common";
   import { Form, Formik } from "formik";
-  import TextField from "../TextField";
+  import TextField from "./TextField";
   
   const AddFriendModal = ({ isOpen, onClose }) => {
     return (
