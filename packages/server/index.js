@@ -7,6 +7,7 @@ const session = require("express-session");
 const server = require("http").createServer(app);
 require("dotenv").config();
 const redisClient = require("./redis");
+const { rateLimiter } = require("../controllers/rateLimiter");
 const RedisStore = require("connect-redis")(session);
 
 const io = new Server(server, {
@@ -35,6 +36,8 @@ app.use(
     },
   })
 );
+
+app.use("/home", rateLimiter(60,10));
 
 io.on("connect", (socket) => {});
 
