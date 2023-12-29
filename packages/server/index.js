@@ -3,21 +3,23 @@ const { Server } = require("socket.io");
 const app = express();
 const helmet = require("helmet");
 const cors = require("cors");
-const session = require("express-session");
 const server = require("http").createServer(app);
 require("dotenv").config();
-const redisClient = require("./redis");
+// const redisClient = require("./redis");
 const { rateLimiter } = require("./controllers/ratelimiter");
-const RedisStore = require("connect-redis");
-import {createClient} from "redis"
 
-let redisClient = createClient()
-redisClient.connect().catch(console.error)
+const session = require("express-session");
+const RedisStore = require("connect-redis")(session);
+const redis = require("redis");
 
-let redisStore = new RedisStore({
+const redisClient = redis.createClient();
+redisClient.connect().catch(console.error);
+
+const redisStore = new RedisStore({
   client: redisClient,
   prefix: "chat-it:",
-})
+});
+
 
 const io = new Server(server, {
   cors: {
