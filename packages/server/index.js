@@ -6,7 +6,7 @@ const cors = require("cors");
 const session = require("express-session");
 const server = require("http").createServer(app);
 require("dotenv").config();
-const Redis = require("ioredis");
+const redisClient = require("./redis");
 const RedisStore = require("connect-redis")(session);
 
 const io = new Server(server, {
@@ -35,10 +35,6 @@ app.use(
     },
   })
 );
-
-app.get("/", (req, res) => {
-  res.send("Hello world");
-});
 
 io.on("connect", (socket) => {});
 
