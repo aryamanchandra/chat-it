@@ -8,11 +8,16 @@ import {
   TabList,
   Text,
   VStack,
+  Circle,
 } from "@chakra-ui/react";
 import React from "react";
 import { CopyIcon } from "@chakra-ui/icons";
+import { useContext } from "react";
+import { FriendContext } from "../components/Home";
 
 function Sidebar() {
+  const { friendList, setFriendList } = useContext(FriendContext);
+
   return (
     <VStack py="1.4rem">
       <VStack justify="space-evenly" w="100%">
@@ -40,15 +45,16 @@ function Sidebar() {
       </VStack>
       <Divider />
       <VStack as={TabList} border="0" pt={5}>
+      {friendList.map(friend => (
         <HStack as={Tab} color="blue.800">
-          <Text>Varun</Text>
+          <Circle
+              bg={friend.connected ? "green.700" : "red.500"}
+              w="20px"
+              h="20px"
+            />
+          <Text>{friend.username}</Text>
         </HStack>
-        <HStack as={Tab} color="blue.800">
-          <Text>Shashwat</Text>
-        </HStack>
-        <HStack as={Tab} color="blue.800">
-          <Text>Ashvin</Text>
-        </HStack>
+        ))}
       </VStack>
     </VStack>
   );

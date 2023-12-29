@@ -10,9 +10,12 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import React from "react";
+import { useContext } from "react";
+import { FriendContext } from "../components/Home";
 
 function Chat() {
-  return (
+  const { friendList } = useContext(FriendContext);
+  return friendList.length > 0 ? (
     <VStack p="5" px="10" height="100%">
       <Grid width="full" height="100%" templateRows="repeat(12, 1fr)">
         <GridItem rowSpan={2}>
@@ -74,6 +77,18 @@ function Chat() {
           />
         </GridItem>
       </Grid>
+    </VStack>
+  ): (
+    <VStack
+      justify="center"
+      pt="5rem"
+      w="100%"
+      textAlign="center"
+      fontSize="lg"
+    >
+      <TabPanels>
+        <Text>No friend, Click add friend to start chatting</Text>
+      </TabPanels>
     </VStack>
   );
 }
