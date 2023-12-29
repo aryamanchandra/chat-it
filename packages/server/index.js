@@ -7,8 +7,17 @@ const session = require("express-session");
 const server = require("http").createServer(app);
 require("dotenv").config();
 const redisClient = require("./redis");
-const { rateLimiter } = require("../controllers/rateLimiter");
-const RedisStore = require("connect-redis")(session);
+const { rateLimiter } = require("./controllers/ratelimiter");
+const RedisStore = require("connect-redis");
+import {createClient} from "redis"
+
+let redisClient = createClient()
+redisClient.connect().catch(console.error)
+
+let redisStore = new RedisStore({
+  client: redisClient,
+  prefix: "chat-it:",
+})
 
 const io = new Server(server, {
   cors: {
@@ -25,7 +34,7 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     credentials: true,
     name: "aryaman",
-    store: new RedisStore({ client: redisClient }),
+    store: redisStore,
     resave: false,
     saveUninitialized: false,
     cookie: {

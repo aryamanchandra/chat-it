@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { rateLimiter } = require("../controllers/rateLimiter");
+const { rateLimiter } = require("../controllers/ratelimiter");
 
 router.route("/home").post(rateLimiter(60,10))
 
