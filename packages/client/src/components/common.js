@@ -1,3 +1,5 @@
+const Yup = require("yup");
+
 const friendSchema = Yup.object({
     friendName: Yup.string()
       .required("Username required")

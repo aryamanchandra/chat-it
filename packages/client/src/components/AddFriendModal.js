@@ -7,7 +7,7 @@ import {
     ModalHeader,
   } from "@chakra-ui/modal";
   import { Button, ModalOverlay } from "@chakra-ui/react";
-  import { friendSchema } from "../../../common/index";
+  import { friendSchema } from "./common";
   import { Form, Formik } from "formik";
   import TextField from "../TextField";
   
