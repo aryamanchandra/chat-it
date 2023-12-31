@@ -16,14 +16,18 @@ const io = new Server(server, {
 });
 
 app.use(helmet());
+app.use(cors(corsConfig));
 app.use(express.json());
 
 app.use(sessionMiddleware);
 
 app.use("/home", rateLimiter(60, 10));
 
-io.use(wrap(sessionMidddleware));
-io.on("connect", (socket) => {});
+io.use(wrap(sessionMiddleware));
+io.on("connect", (socket) => {
+  console.log(socket.id);
+  console.log(socket.request.session.user.username);
+});
 
 server.listen(4000, () => {
   console.log("Server listening on port 4000");
