@@ -5,10 +5,14 @@ const helmet = require("helmet");
 const cors = require("cors");
 const server = require("http").createServer(app);
 const { rateLimiter } = require("./controllers/ratelimiter");
-const {sessionMidddleware, wrap, corsConfig} = require("./controllers/serverController");
+const {
+  sessionMidddleware,
+  wrap,
+  corsConfig,
+} = require("./controllers/serverController");
 
 const io = new Server(server, {
-  cors: 
+  cors: corsConfig,
 });
 
 app.use(helmet());
@@ -18,6 +22,7 @@ app.use(sessionMidddleware);
 
 app.use("/home", rateLimiter(60, 10));
 
+io.use(wrap(sessionMidddleware));
 io.on("connect", (socket) => {});
 
 server.listen(4000, () => {
