@@ -6,7 +6,7 @@ const cors = require("cors");
 const server = require("http").createServer(app);
 const { rateLimiter } = require("./controllers/ratelimiter");
 const {
-  sessionMidddleware,
+  sessionMiddleware,
   wrap,
   corsConfig,
 } = require("./controllers/serverController");
@@ -18,7 +18,7 @@ const io = new Server(server, {
 app.use(helmet());
 app.use(express.json());
 
-app.use(sessionMidddleware);
+app.use(sessionMiddleware);
 
 app.use("/home", rateLimiter(60, 10));
 
